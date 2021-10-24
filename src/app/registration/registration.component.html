@@ -1,0 +1,47 @@
+<div class="signup-form">
+    <form [formGroup] = "RegisterForm" (ngSubmit)="onSubmit()">
+        <h2>Register</h2>
+        <p class="hint-text">Create your account, It's free and only takes a minute</p>
+        <div class="form-groub">
+            <div class="row">
+                <div class="col"><input type="text" name="Name" formControlName="Name" class="form-control" placeholder="Name"></div>
+            </div>
+            <span *ngIf="submitted && user.Name.invalid" style="color: red;">Requier</span>
+        </div>
+        <div class="form-groub">
+            <div class="row">
+                <div class="col"><input type="email" name="email" formControlName="email" class="form-control" placeholder="Email"></div>
+            </div>
+            <span *ngIf="submitted && user.email.invalid" style="color: red;">Requier</span>
+        </div>
+        <div class="form-groub">
+            <div class="row">
+                <div class="col"><input type="text" name="username" formControlName="username" class="form-control" placeholder="User Name"></div>
+            </div>
+            <span *ngIf="submitted && user.username.invalid" style="color: red;">Requier</span>
+        </div>
+        <div class="form-groub">
+            <div class="row">
+                <div class="col"><input type="password" name="password" formControlName="password" class="form-control" placeholder="Password"></div>
+            </div>
+            <span *ngIf="submitted && user.password.invalid" style="color: red;">Requier</span>
+        </div>
+        <div class="form-groub">
+            <div class="row">
+                <div class="col"><input type="password" name="confirmpassword" formControlName="confirmpassword" class="form-control" placeholder="Confirm Password"></div>
+            </div>
+            <div *ngIf="submitted && user.confirmpassword.errors">
+                 <div *ngIf="user.confirmpassword.errosrs?.required">Require</div>
+                 <div *ngIf="user.confirmpassword.errosrs?.mustMatch">password must match</div>
+            </div>
+            <span *ngIf="submitted && user.confirmpassword.invalid" style="color: red;">Requier</span>
+        </div>
+        <div class="form-groub">
+            <label class="form-check-label"><input type="checkbox" required> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a> </label>
+        </div>
+        <div class="form-groub">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register</button>
+        </div>
+        <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+    </form>
+</div>
